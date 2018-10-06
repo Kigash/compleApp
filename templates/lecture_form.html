@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url({{url_for('static', filename='ungem.jpg')}});
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<h3>
+<p> WELCOME </p>
+</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5>"></div>
+        <div class="col-sm-5">
+            <form action="/add" method="post">
+                <div class="form-group">
+                    <input type="text" name="course" class="form-control" placeholder="course">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="unit" class="form-control" placeholder="unit name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="unit_code" class="form-control" placeholder="unit code">
+                </div>
+                <div class="form-group">
+                    <input type="time" name="start_time" class="form-control" placeholder="start time">
+                </div>
+                <div class="form-group">
+                    <input type="time" name="end_time" class="form-control" placeholder="end time">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="department" class="form-control" placeholder="department">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lecturer" class="form-control" placeholder="lecturer">
+                </div>
+                <div class="form-group">
+                     <input type="date" name="date" class="form-control" placeholder="lecture date">
+                </div>
+                <button class="btn btn-primary btn-block">Add Lecture</button>
+
+            </form>
+
+
+
+        </div>
+        <div class="col-sm-5"></div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

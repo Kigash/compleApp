@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="bg">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url({{url_for('static', filename='new.jpg')}});
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% for m in messages %}
+                <h2>{{ m }}</h2>
+            {% endfor %}
+        {% endwith %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>COURSE</th>
+                    <th>UNIT</th>
+                    <th>UNIT CODE</th>
+                    <th>START TIME</th>
+                    <th>DATE</th>
+                    <th>LECTURER</th>
+                    <th>DEPARTMENT</th>
+                    <th>STATUS</th>
+                    <th>DELETE</th>
+                    <th>EDIT</th>
+            </thead>
+            <tbody>
+                {% for lecture  in lectures%}
+                    <tr>
+                        <td>{{ lecture.id }}</td>
+                        <td>{{ lecture.course }}</td>
+                        <td>{{ lecture.unit }}</td>
+                        <td>{{ lecture.unit_code }}</td>
+                        <td>{{ lecture.start_time }}</td>
+                        <td>{{ lecture.date }}</td>
+                        <td>{{ lecture.lecturer }}</td>
+                        <td>{{ lecture.department }}</td>
+                        <td>{% if lecture.status==True%}Completed{% else %}In progress{% endif %}</td>
+                        <td>
+                            <a href="/delete/{{ lecture.id }}">Delete</a>
+                        </td>
+                        <td>
+                            <a href="/edit/{{ lecture.id }}">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

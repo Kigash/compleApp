@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url({{url_for('static', filename='ungem.jpg')}});
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form action="/add-user" method="post" name="add" id="add">
+                <div class="form-group">
+                    <input type="text" name="names" class="form-control" placeholder="Names">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="password">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="reg_no" class="form-control" placeholder="Reg No">
+                </div>
+                <div class="form-group">
+                    <input type="date" name="dob" class="form-control" placeholder="Date of Birth">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="course" class="form-control" placeholder="Course">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="department" class="form-control" placeholder="Department">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="address" class="form-control" placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <select name="role" form="add" required>
+                        <option></option>
+                        <option value="admin">Administrator</option>
+                        <option value="lecturer">Lecturer</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary btn-block">Sign UP</button>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+</div>
+{% endblock %}

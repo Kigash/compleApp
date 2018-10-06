@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url({{url_for('static', filename='dodge.jpg')}});
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">A</div>
+        <div class="col-sm-4">
+            <form action="/save/{{ lecture.id }}" method="post">
+                <div class="form-group">
+                    <input type="text" value="{{ lecture.course }}"  name="course" class="form-control" placeholder="COURSE">
+                </div>
+                <div class="form-group">
+                    <input type="text" value="{{ lecture.unit }}" name="unit" class="form-control" placeholder="UNIT NAME">
+                </div>
+                <div class="form-group">
+                    <input type="text" value="{{ lecture.unit_code }}" name="unit_code" class="form-control" placeholder="UNIT CODE">
+                </div>
+                <div class="form-group">
+                    <input type="time" value="{{ lecture.start_time }}" name="start_time" class="form-control" placeholder="STARTING TIME">
+                </div>
+                <div class="form-group">
+                    <input type="time" value="{{ lecture.end_time }}" name="end_time" class="form-control" placeholder="END TIME">
+                </div>
+                 <div class="form-group">
+                    <input type="text" value="{{ lecture.department }}" name="department" class="form-control" placeholder="DEPARTMENT">
+                </div>
+                <div class="form-group">
+                    <input type="text" value="{{ lecture.lecturer }}" name="lecturer" class="form-control" placeholder="LECTURER">
+                </div>
+                <div class="form-group">
+                    <input type="date" value="{{ lecture.date }}" name="date" class="form-control" placeholder="LECTURE DATE">
+                </div>
+                <button class="btn btn-primary btn-block">Edit lecture</button>
+
+            </form>
+
+
+
+        </div>
+        <div class="col-sm-4">C</div>
+
+    </div>
+</div>
+</div>
+{% endblock %}
